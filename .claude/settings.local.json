@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"c:\\\\Users\\\\julia\\\\Downloads\" | grep -iE \"\\\\.\\(png|jpg|jpeg|webp\\)\" )",
+      "Read(//c/Users/julia/Downloads/**)"
+    ]
+  }
+}
