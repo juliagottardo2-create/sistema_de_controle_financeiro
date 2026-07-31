@@ -2,22 +2,24 @@
 
 Aplicativo de controle financeiro pessoal — acompanhe receitas, despesas e configurações da sua conta em um só lugar.
 
-Este repositório contém a implementação em HTML/CSS da tela de **Perfil**, construída a partir do design feito no Figma (`design/perfil-v1.png`).
+Este repositório contém a implementação em HTML/CSS das telas construídas a partir do design feito no Figma (pasta `design/`).
 
 ## Estrutura do projeto
 
 ```
 saldo-app/
 ├── design/
-│   └── perfil-v1.png   # print da tela de Perfil exportada do Figma
-├── index.html           # estrutura da tela de Perfil
-├── style.css             # estilos, paleta de cores e tipografia
+│   ├── perfil-v1.png             # print da tela de Perfil exportada do Figma
+│   └── receitas-despesas-v1.png  # print da tela de Receitas e Despesas
+├── index.html                     # tela de Perfil
+├── receitas-despesas.html         # tela de Receitas e Despesas
+├── style.css                       # estilos, paleta de cores e tipografia (compartilhado)
 └── README.md
 ```
 
 ## Como visualizar
 
-Basta abrir o arquivo `index.html` em qualquer navegador — não há dependências ou build necessário.
+Abra `index.html` ou `receitas-despesas.html` em qualquer navegador — não há dependências ou build necessário. As páginas se linkam entre si pelo menu lateral.
 
 ## Paleta de cores
 
@@ -36,6 +38,7 @@ Fonte principal: **Inter** (com fallback para fontes de sistema).
 
 ## Próximos passos
 
-- [ ] Adicionar as telas de Login, Dashboard e Receitas/Despesas nessa mesma paleta
-- [ ] Conectar o formulário de "Dados pessoais" a uma API/backend
+- [ ] Adicionar as telas de Login e Dashboard nessa mesma paleta
+- [ ] Conectar as tabelas e formulários a uma API/backend
 - [ ] Implementar a lógica de autenticação e persistência de dados
+- [ ] Deixar as abas (Todas/Receitas/Despesas/Pendentes) e os botões funcionais com JavaScript
