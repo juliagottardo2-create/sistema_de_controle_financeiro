@@ -9,17 +9,17 @@ Este repositório contém a implementação em HTML/CSS das telas construídas a
 ```
 saldo-app/
 ├── design/
-│   ├── perfil-v1.png             # print da tela de Perfil exportada do Figma
-│   └── receitas-despesas-v1.png  # print da tela de Receitas e Despesas
-├── index.html                     # tela de Perfil
-├── receitas-despesas.html         # tela de Receitas e Despesas
-├── style.css                       # estilos, paleta de cores e tipografia (compartilhado)
+│   ├── perfil-v1.png              # print da tela de Perfil exportada do Figma
+│   └── despesas-e-receitas-v1.png # print da tela de Receitas e Despesas
+├── index.html                      # tela de Perfil
+├── despesas-e-receitas.html        # tela de Receitas e Despesas
+├── style.css                        # estilos, paleta de cores e tipografia (compartilhado)
 └── README.md
 ```
 
 ## Como visualizar
 
-Abra `index.html` ou `receitas-despesas.html` em qualquer navegador — não há dependências ou build necessário. As páginas se linkam entre si pelo menu lateral.
+Abra `index.html` ou `despesas-e-receitas.html` em qualquer navegador — não há dependências ou build necessário. As páginas se linkam entre si pelo menu lateral.
 
 ## Paleta de cores
 

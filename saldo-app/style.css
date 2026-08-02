@@ -563,6 +563,12 @@ tbody tr:hover {
   color: var(--red);
 }
 
+.cat-icon.navy {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
 .desc-name {
   font-weight: 600;
   margin: 0 0 2px;
