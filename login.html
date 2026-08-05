@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Saldo+ · Entrar</title>
+<style>
+  :root {
+    --bg: #F6F8F5;
+    --surface: #FFFFFF;
+    --surface-alt: #EEF2ED;
+    --border: #DEE4DC;
+    --text: #172019;
+    --text-muted: #5C685F;
+    --text-faint: #8B968C;
+    --navy: #101B2D;
+    --navy-soft: #17233A;
+    --navy-line: #2A3B57;
+    --green: #1C9A5B;
+    --green-bg: #E4F6EA;
+    --green-soft: #57C98A;
+    --red: #D6483F;
+    --red-bg: #FBEAE8;
+    --amber: #D98C22;
+    --amber-bg: #FCF0DA;
+    --blue: #2F6FE0;
+    --blue-bg: #E7EFFD;
+    --blue-strong: #1E4FAF;
+    --radius-s: 8px;
+    --radius-m: 14px;
+    --radius-l: 22px;
+    --shadow-card: 0 1px 2px rgba(16,27,45,0.05), 0 20px 40px -20px rgba(16,27,45,0.25);
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, "Cascadia Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0E1420; --surface: #141C2A; --surface-alt: #1A2334; --border: #263248;
+      --text: #E7ECF2; --text-muted: #97A3B5; --text-faint: #647087;
+      --navy: #0A101B; --navy-soft: #101929; --navy-line: #223050;
+      --green-bg: rgba(28,154,91,0.16); --red-bg: rgba(214,72,63,0.16);
+      --amber-bg: rgba(217,140,34,0.16); --blue-bg: rgba(47,111,224,0.18);
+      --shadow-card: 0 1px 2px rgba(0,0,0,0.4), 0 20px 40px -20px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0E1420; --surface: #141C2A; --surface-alt: #1A2334; --border: #263248;
+    --text: #E7ECF2; --text-muted: #97A3B5; --text-faint: #647087;
+    --navy: #0A101B; --navy-soft: #101929; --navy-line: #223050;
+    --green-bg: rgba(28,154,91,0.16); --red-bg: rgba(214,72,63,0.16);
+    --amber-bg: rgba(217,140,34,0.16); --blue-bg: rgba(47,111,224,0.18);
+    --shadow-card: 0 1px 2px rgba(0,0,0,0.4), 0 20px 40px -20px rgba(0,0,0,0.6);
+  }
+  :root[data-theme="light"] {
+    --bg: #F6F8F5; --surface: #FFFFFF; --surface-alt: #EEF2ED; --border: #DEE4DC;
+    --text: #172019; --text-muted: #5C685F; --text-faint: #8B968C;
+    --navy: #101B2D; --navy-soft: #17233A; --navy-line: #2A3B57;
+    --green-bg: #E4F6EA; --red-bg: #FBEAE8; --amber-bg: #FCF0DA; --blue-bg: #E7EFFD;
+    --shadow-card: 0 1px 2px rgba(16,27,45,0.05), 0 20px 40px -20px rgba(16,27,45,0.25);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; background: var(--bg); color: var(--text);
+    font-family: var(--font-sans); display: flex;
+  }
+  .screen { display: grid; grid-template-columns: 1.05fr 1fr; min-height: 100vh; width: 100%; }
+  .brand-panel {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-soft) 60%, #142238 100%);
+    color: #E7ECF2; padding: 56px 64px; display: flex; flex-direction: column;
+    justify-content: space-between; position: relative; overflow: hidden;
+  }
+  .brand-mark { display: flex; align-items: center; gap: 10px; font-weight: 650; font-size: 1.05rem; letter-spacing: -0.01em; z-index: 1; }
+  .brand-mark .dot { width: 30px; height: 30px; border-radius: 9px; background: linear-gradient(135deg, var(--green-soft), var(--green)); display: flex; align-items: center; justify-content: center; }
+  .brand-copy { z-index: 1; max-width: 420px; }
+  .brand-copy h1 { font-size: 2.35rem; line-height: 1.15; font-weight: 650; letter-spacing: -0.02em; text-wrap: balance; margin: 0 0 14px; }
+  .brand-copy p { color: #AEB9C9; font-size: 1rem; line-height: 1.6; margin: 0; }
+  .chart-card {
+    z-index: 1; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-l); padding: 22px 24px; backdrop-filter: blur(6px); margin-top: 40px;
+  }
+  .chart-card .row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+  .chart-card .label { font-size: 0.78rem; color: #9AA6B8; text-transform: uppercase; letter-spacing: 0.06em; }
+  .chart-card .value { font-family: var(--font-mono); font-size: 1.5rem; font-variant-numeric: tabular-nums; font-weight: 600; }
+  .chip-row { display: flex; gap: 10px; margin-top: 18px; }
+  .chip { display: flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; font-family: var(--font-mono); font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+  .chip.g { background: rgba(28,154,91,0.22); color: #6EDC9F; }
+  .chip.r { background: rgba(214,72,63,0.22); color: #F0938C; }
+  .glow { position: absolute; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(28,154,91,0.25), transparent 70%); top: -140px; right: -160px; }
+  .form-panel { display: flex; align-items: center; justify-content: center; padding: 40px; }
+  .form-wrap { width: 100%; max-width: 380px; }
+  .form-wrap h2 { font-size: 1.6rem; font-weight: 650; letter-spacing: -0.015em; margin: 0 0 6px; }
+  .form-wrap .sub { color: var(--text-muted); font-size: 0.92rem; margin: 0 0 30px; }
+  label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+  .field { margin-bottom: 18px; }
+  .input-wrap { position: relative; }
+  input[type="email"], input[type="password"], input[type="text"] {
+    width: 100%; padding: 11px 14px; border-radius: var(--radius-s); border: 1px solid var(--border);
+    background: var(--surface); color: var(--text); font-size: 0.95rem; font-family: var(--font-sans);
+    outline: none; transition: border-color .15s, box-shadow .15s;
+  }
+  input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-bg); }
+  .toggle-pass { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--text-faint); padding: 4px; display: flex; }
+  .toggle-pass:hover { color: var(--blue); }
+  .row-between { display: flex; align-items: center; justify-content: space-between; margin: 4px 0 24px; font-size: 0.86rem; }
+  .remember { display: flex; align-items: center; gap: 7px; color: var(--text-muted); }
+  .remember input { accent-color: var(--green); }
+  a.link { color: var(--blue); text-decoration: none; font-weight: 600; }
+  a.link:hover { text-decoration: underline; }
+  .btn-primary {
+    width: 100%; padding: 12px 16px; border-radius: var(--radius-s); border: none; cursor: pointer;
+    background: var(--green); color: #fff; font-size: 0.96rem; font-weight: 650; letter-spacing: -0.005em;
+    display: flex; align-items: center; justify-content: center; gap: 8px; transition: background .15s, transform .05s;
+  }
+  .btn-primary:hover { background: #17824E; }
+  .btn-primary:active { transform: scale(0.99); }
+  .divider { display: flex; align-items: center; gap: 12px; margin: 26px 0; color: var(--text-faint); font-size: 0.8rem; }
+  .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+  .signup { text-align: center; font-size: 0.9rem; color: var(--text-muted); }
+  .badge-secure { display: inline-flex; align-items: center; gap: 6px; font-size: 0.76rem; color: var(--text-faint); margin-top: 28px; }
+  @media (max-width: 860px) {
+    .screen { grid-template-columns: 1fr; }
+    .brand-panel { display: none; }
+  }
+  :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<div class="screen">
+  <aside class="brand-panel">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="brand-mark">
+      <span class="dot" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 15L9 9L13.5 13L20 6" stroke="#0F2417" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      Saldo+
+    </div>
+    <div class="brand-copy">
+      <h1>Suas finanças, no controle.</h1>
+      <p>Acompanhe receitas, despesas e pendências em um só lugar — com clareza sobre para onde vai cada real.</p>
+      <div class="chart-card">
+        <div class="row">
+          <span class="label">Saldo do mês</span>
+        </div>
+        <div class="value">R$ 3.842,50</div>
+        <svg width="100%" height="64" viewBox="0 0 300 64" style="margin-top:10px" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#57C98A" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#57C98A" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M0,46 L30,40 L60,44 L90,28 L120,32 L150,18 L180,24 L210,12 L240,16 L270,6 L300,10 L300,64 L0,64 Z" fill="url(#sparkFill)"/>
+          <path d="M0,46 L30,40 L60,44 L90,28 L120,32 L150,18 L180,24 L210,12 L240,16 L270,6 L300,10" fill="none" stroke="#6EDC9F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="chip-row">
+          <span class="chip g">↑ R$ 4.230,00</span>
+          <span class="chip r">↓ R$ 2.180,00</span>
+        </div>
+      </div>
+    </div>
+    <div></div>
+  </aside>
+
+  <main class="form-panel">
+    <form class="form-wrap" onsubmit="return false;">
+      <h2>Bem-vinda de volta</h2>
+      <p class="sub">Entre com sua conta para continuar.</p>
+
+      <div class="field">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="voce@email.com" autocomplete="email" value="julia.gottardo@email.com" />
+      </div>
+
+      <div class="field">
+        <label for="senha">Senha</label>
+        <div class="input-wrap">
+          <input type="password" id="senha" placeholder="••••••••" autocomplete="current-password" value="senha123456" />
+          <button type="button" class="toggle-pass" aria-label="Mostrar senha" onclick="const i=document.getElementById('senha'); i.type = i.type==='password' ? 'text' : 'password';">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="row-between">
+        <label class="remember"><input type="checkbox" checked /> Lembrar de mim</label>
+        <a class="link" href="#">Esqueceu a senha?</a>
+      </div>
+
+      <button class="btn-primary" type="submit">
+        Entrar
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="divider">ou</div>
+      <p class="signup">Ainda não tem conta? <a class="link" href="#">Criar conta grátis</a></p>
+
+      <div class="badge-secure">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3Z" stroke="currentColor" stroke-width="1.6"/></svg>
+        Conexão segura e dados criptografados
+      </div>
+    </form>
+  </main>
+</div>
+</body>
+</html>
